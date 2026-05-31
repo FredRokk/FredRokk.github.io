@@ -1102,6 +1102,16 @@ font-size:unset;
 
 }
 
+.contact-link .icon.github-logo{
+
+width:24px;
+
+height:24px;
+
+font-size:unset;
+
+}
+
 .location{
 
 color:var(--muted);
