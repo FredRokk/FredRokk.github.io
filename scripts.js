@@ -127,7 +127,7 @@ const danishTranslations = {
 "lang-danish":"Dansk",
 "lang-english":"Engelsk",
 "about2-heading":"Lidt om mig",
-"about2-p1":"Jeg bor i Høll sammen med min kone Louise og vores datter Vilde samt vores hund. Jeg befinder mig et sted i livet, hvor jeg søger nye udfordringer, både fagligt og privat.",
+"about2-p1":"Jeg bor i Høll sammen med min kone Louise og vores datter Vilde samt vores hund. Jeg befinder mig et sted i livet, hvor jeg søger nye udfordringer, både fagligt og personligt.",
 "about2-p2":"Jeg har altid haft stor stolthed i at levere et grundigt og veludført stykke arbejde. Gennem vedholdenhed og engagement har jeg opnået mine resultater, og jeg trives med at tage fat, også når tingene bliver komplekse.",
 "about2-p3":"Jeg ser det som en styrke, at jeg ikke tøver med at søge sparring, når opgaven kræver det, og jeg sætter stor pris på et stærkt kollegialt fællesskab med godt humør og en konstruktiv tilgang.",
 "contact-heading":"Kontakt",
