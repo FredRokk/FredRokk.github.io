@@ -96,7 +96,7 @@ const danishTranslations = {
 "experience-label":"Erfaring",
 "exp1-role":"Embedded Firmware Udvikler",
 "exp1-date":"Feb. 2022 — Nu",
-"exp1-desc":"Jeg har i samarbejde med kunder udviklet produkter til industrien og andre virksomheder. Mit hovedprodukt er en intelligent rottefælde, der via internettet sender information om det udførte drab, hvorefter kunden kan sende notifikationer til deres slutbrugere. Arbejdet har bestået af cirka 70% firmwareudvikling og 30% softwareudvikling, herunder produktionsværktøjer, remote firmware-opdatering, backend-servere og et labelprinterprogram.",
+"exp1-desc":"Jeg har i samarbejde med kunder udviklet produkter til industrien og andre virksomheder. Mit hovedprodukt er en intelligent rottefælde, der via internettet sender information om det udførte aflivninger, hvorefter kunden kan sende notifikationer til deres slutbrugere. Arbejdet har bestået af cirka 70% firmwareudvikling og 30% softwareudvikling, herunder produktionsværktøjer, remote firmware-opdatering, backend-servere og et labelprinterprogram.",
 "exp2-role":"Praktikant — Produktudvikling",
 "exp2-date":"Feb. 2020 — Jul. 2020",
 "exp2-desc":"Udviklede en funktionel prototype til avanceret overvågning for borgere med demens i hjemmeplejen. Arbejdet var med til at danne grundlag for, at virksomheden oprettede en dedikeret elektronikudviklingsafdeling.",
@@ -117,7 +117,7 @@ const danishTranslations = {
 "skills-soft":"Styrker",
 "soft-passionate":"Passioneret",
 "soft-responsible":"Pligtopfyldende",
-"soft-ambitious":"Ambisiøs",
+"soft-ambitious":"ambitiøs",
 "soft-fast-learner":"Klæbehjerne",
 "soft-collaborative":"Samarbejdende",
 "soft-results":"Resultatorienteret",
@@ -127,12 +127,12 @@ const danishTranslations = {
 "lang-danish":"Dansk",
 "lang-english":"Engelsk",
 "about2-heading":"Lidt om mig",
-"about2-p1":"Jeg bor i Børkop sammen med min kone Louise og vores datter Vilde samt vores hund. Jeg befinder mig et sted i livet, hvor jeg søger nye udfordringer, både fagligt og privat.",
+"about2-p1":"Jeg bor i Høll sammen med min kone Louise og vores datter Vilde samt vores hund. Jeg befinder mig et sted i livet, hvor jeg søger nye udfordringer, både fagligt og privat.",
 "about2-p2":"Jeg har altid haft stor stolthed i at levere et grundigt og veludført stykke arbejde. Gennem vedholdenhed og engagement har jeg opnået mine resultater, og jeg trives med at tage fat, også når tingene bliver komplekse.",
 "about2-p3":"Jeg ser det som en styrke, at jeg ikke tøver med at søge sparring, når opgaven kræver det, og jeg sætter stor pris på et stærkt kollegialt fællesskab med godt humør og en konstruktiv tilgang.",
 "contact-heading":"Kontakt",
 "linkedin-label":"LinkedIn",
-"location-label":"📍 Børkop, Danmark",
+"location-label":"📍 Høll, Danmark",
 "map-heading":"Find mig på kortet",
 "map-open":"Åbn i OpenStreetMap"
 };
@@ -320,7 +320,7 @@ localStorage.getItem(
 preferredLanguage = null;
 }
 
-applyLanguage(preferredLanguage || "da");
+applyLanguage(preferredLanguage || "en");
 
 if(
 themeToggle
