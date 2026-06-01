@@ -68,6 +68,10 @@ color-scheme:dark light;
 
 --floating-header-clearance:10px;
 
+--site-header-offset:0px;
+
+--experience-sticky-top:calc(var(--site-header-offset) + var(--floating-header-clearance));
+
 --card-radius:18px;
 
 --panel-radius:8px;
@@ -812,7 +816,7 @@ padding:
 
 position:sticky;
 
-top:var(--floating-header-clearance);
+top:var(--experience-sticky-top);
 
 z-index:30;
 
@@ -1547,7 +1551,7 @@ right:8px;
 
 .sticky{
 
-top:8px;
+top:calc(var(--site-header-offset) + 8px);
 
 }
 
@@ -1723,7 +1727,7 @@ padding-bottom:80px;
 
 .sticky{
 
-top:68px;
+top:calc(var(--site-header-offset) + 68px);
 
 width:100%;
 

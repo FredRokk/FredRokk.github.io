@@ -24,6 +24,7 @@ const COMPACT_HEADER_HINT_DURATION_MS = 2600;
 const state = {
   activeCards: new Set(),
   frameRequested: false,
+  headerOffsetFrameRequested: false,
   hasShownCompactHeaderHint: false,
   wasCompactHeaderVisible: false,
   currentLanguage: "en"
@@ -194,6 +195,8 @@ function applyTheme(theme) {
   } catch (error) {
     // Ignore storage errors in restricted browsing modes.
   }
+
+  scheduleHeaderOffsetUpdate();
 }
 
 function applyLanguage(lang) {
@@ -227,6 +230,8 @@ function applyLanguage(lang) {
   } catch (error) {
     // Ignore storage errors in restricted browsing modes.
   }
+
+  scheduleHeaderOffsetUpdate();
 }
 
 function updateHeroState() {
@@ -262,6 +267,86 @@ function updateExperienceProgress() {
     progressBar.setAttribute("aria-valuenow", `${progressPercent}`);
     progressBar.setAttribute("aria-valuetext", `${progressPercent}%`);
   }
+}
+
+function updateSiteHeaderOffset() {
+  const stickyContainer = document.querySelector(".sticky");
+
+  if (!stickyContainer) {
+    document.documentElement.style.setProperty("--site-header-offset", "0px");
+    return;
+  }
+
+  const stickyStyle = window.getComputedStyle(stickyContainer);
+
+  if (stickyStyle.top === "auto") {
+    document.documentElement.style.setProperty("--site-header-offset", "0px");
+    return;
+  }
+
+  const stickyRect = stickyContainer.getBoundingClientRect();
+  const stickyLeft = stickyRect.left;
+  const stickyRight = stickyRect.right;
+  const floatingClearance = Number.parseFloat(
+    window
+      .getComputedStyle(document.documentElement)
+      .getPropertyValue("--floating-header-clearance")
+  );
+  const baseTop = Number.isFinite(floatingClearance) ? floatingClearance : 0;
+  const probeY = baseTop + 1;
+
+  const discoveredTopBlockers = [...document.querySelectorAll("body *")].filter((element) => {
+    if (
+      element.classList?.contains("compact-header") ||
+      element.classList?.contains("language-selector") ||
+      element.classList?.contains("sticky") ||
+      element.classList?.contains("sticky-label") ||
+      element.id === "experience-progress" ||
+      element.closest(".sticky")
+    ) {
+      return false;
+    }
+
+    const style = window.getComputedStyle(element);
+    const isPinned = style.position === "fixed" || style.position === "sticky";
+
+    if (!isPinned || style.display === "none" || style.visibility === "hidden") {
+      return false;
+    }
+
+    if (Number.parseFloat(style.opacity || "1") < 0.25) {
+      return false;
+    }
+
+    const rect = element.getBoundingClientRect();
+
+    if (rect.height < 12 || rect.bottom <= 0 || rect.top > probeY) {
+      return false;
+    }
+
+    const widthRatio = rect.width / Math.max(1, window.innerWidth);
+    return widthRatio >= 0.18;
+  });
+
+  const blockerBottom = discoveredTopBlockers.reduce((maxBottom, element) => {
+    const rect = element.getBoundingClientRect();
+    const overlapsHorizontally = rect.right > stickyLeft && rect.left < stickyRight;
+    const coversProbeLine = rect.top <= probeY && rect.bottom > probeY;
+
+    if (!overlapsHorizontally || !coversProbeLine) {
+      return maxBottom;
+    }
+
+    return Math.max(maxBottom, rect.bottom);
+  }, 0);
+
+  // Keep the configured base top and only add the extra push needed to clear blockers.
+  const extraOffset = Math.max(0, Math.round(blockerBottom - baseTop));
+
+  document.documentElement.style.setProperty(
+    "--site-header-offset",
+    `${extraOffset}px`
+  );
 }
 
 function resetCard(card) {
@@ -313,6 +398,20 @@ function updateUi() {
   updateHeroState();
   updateExperienceProgress();
   updateCards();
+}
+
+function runHeaderOffsetUpdate() {
+  state.headerOffsetFrameRequested = false;
+  updateSiteHeaderOffset();
+}
+
+function scheduleHeaderOffsetUpdate() {
+  if (state.headerOffsetFrameRequested) {
+    return;
+  }
+
+  state.headerOffsetFrameRequested = true;
+  window.requestAnimationFrame(runHeaderOffsetUpdate);
 }
 
 function scheduleUpdate() {
@@ -413,6 +512,27 @@ function initCompactHeaderLink() {
   });
 }
 
+function initHeaderOffsetObservers() {
+  scheduleHeaderOffsetUpdate();
+
+  window.addEventListener("resize", scheduleHeaderOffsetUpdate);
+  window.addEventListener("orientationchange", scheduleHeaderOffsetUpdate);
+  window.addEventListener("scroll", scheduleHeaderOffsetUpdate, { passive: true });
+  window.addEventListener("load", scheduleHeaderOffsetUpdate);
+
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", scheduleHeaderOffsetUpdate);
+  }
+
+  if ("ResizeObserver" in window) {
+    const resizeObserver = new ResizeObserver(() => {
+      scheduleHeaderOffsetUpdate();
+    });
+
+    resizeObserver.observe(document.documentElement);
+  }
+}
+
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => {
     applyLanguage(button.dataset.lang);
@@ -448,6 +568,7 @@ initCompactHeaderLink();
 initContactMap();
 initSkillsAnimation();
 initCardObserver();
+initHeaderOffsetObservers();
 
 window.addEventListener("scroll", scheduleUpdate, { passive: true });
 window.addEventListener("resize", scheduleUpdate);
