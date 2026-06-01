@@ -1,321 +1,393 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title data-i18n="page-title">Frederik Rokkjær Strebøl — Embedded System Engineer</title>
 
-<link rel="stylesheet" href="styles.css">
-<link
-rel="stylesheet"
-href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-crossorigin=""
->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title data-i18n="page-title">Frederik Rokkjær Strebøl — Embedded System Engineer</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 
 <body>
 
-<div class="compact-header" aria-hidden="true">
-<img src="Pictures/Profil_billede_2025.jpg" alt="" class="compact-header-photo">
-<span class="compact-header-name">Frederik Rokkjær Strebøl</span>
-</div>
+    <a href="#top" class="compact-header" aria-label="Back to top">
+        <img src="Pictures/Profil_billede_2025.webp" alt="" class="compact-header-photo" decoding="async">
+        <span class="compact-header-hint" aria-hidden="true"></span>
+        <span class="compact-header-name">Frederik Rokkjær Strebøl</span>
+    </a>
 
-<div class="language-selector" aria-label="Language selector">
-<button type="button" class="lang-btn" data-lang="da">DA</button>
-<button type="button" class="lang-btn" data-lang="en">EN</button>
-<button type="button" class="theme-btn" id="theme-toggle" aria-label="Switch to light mode">Light</button>
-</div>
+    <nav class="language-selector" aria-label="Language and theme controls">
+        <button type="button" class="lang-btn" data-lang="da">DA</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="theme-btn" id="theme-toggle" aria-label="Switch to light mode">Light</button>
+    </nav>
 
-<header class="hero">
+    <header id="top" class="hero">
+
+        <div class="hero-bg" aria-hidden="true"></div>
 
-<div class="hero-bg"></div>
+        <div class="hero-content">
+            <img src="Pictures/Profil_billede_2025.webp" alt="Portrait of Frederik Rokkjær Strebøl"
+                class="profile-photo" decoding="async" fetchpriority="high">
+            <h1>Frederik Rokkjær Strebøl</h1>
 
-<div class="hero-content">
-<img src="Pictures/Profil_billede_2025.jpg" alt="Portrait of Frederik Rokkjær Strebøl" class="profile-photo">
-<h1>Frederik Rokkjær Strebøl</h1>
+            <p class="title" data-i18n="hero-title">
+                Embedded System Engineer
+            </p>
 
-<p class="title" data-i18n="hero-title">
-Embedded System Engineer
-</p>
+            <p class="subtitle" data-i18n="hero-subtitle">
+                Firmware • IoT • Production Systems • Cloud Integration
+            </p>
 
-<p class="subtitle" data-i18n="hero-subtitle">
-Firmware • IoT • Production Systems • Cloud Integration
-</p>
+            <nav class="buttons" aria-label="Primary actions">
+                <a href="#experience"><span data-i18n="hero-view-experience">View Experience</span></a>
+                <a id="cv-download" href="CVs/CV_Dansk.pdf" download="Frederik_Rokkjaer_Streboel_CV_DA.pdf"><span
+                        data-i18n="hero-get-cv">Get CV</span></a>
+                <a href="https://www.linkedin.com/in/frederik-rokkjaer" target="_blank" rel="noopener noreferrer"
+                    aria-label="Open Frederik Rokkjær Strebøl's LinkedIn profile in a new tab">
+                    <svg class="linkedin-logo" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill="currentColor"
+                            d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0ZM7.12 20.45H3.56V9h3.56v11.45ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14Zm15.11 13.02h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.26 2.39 4.26 5.48v6.26Z">
+                        </path>
+                    </svg>
+                    <span data-i18n="hero-linkedin">LinkedIn Profile</span>
+                </a>
+            </nav>
 
-<div class="buttons">
-<a href="#experience"><span data-i18n="hero-view-experience">View Experience</span></a>
-<a id="cv-download" href="CVs/CV_Dansk.pdf" download="Frederik_Rokkjaer_Streboel_CV_DA.pdf"><span data-i18n="hero-get-cv">Get CV</span></a>
-<a href="https://www.linkedin.com/in/frederik-rokkjaer" target="_blank">
-<svg class="linkedin-logo" viewBox="0 0 24 24" aria-hidden="true">
-<path fill="currentColor" d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0ZM7.12 20.45H3.56V9h3.56v11.45ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14Zm15.11 13.02h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.26 2.39 4.26 5.48v6.26Z"></path>
-</svg>
-<span data-i18n="hero-linkedin">LinkedIn Profile</span>
-</a>
-</div>
+        </div>
 
-</div>
+    </header>
 
-</header>
+    <main>
 
+        <section class="about" aria-labelledby="about-heading">
 
-<section class="about">
+            <h2 id="about-heading" data-i18n="about-heading">Engineering That Ships</h2>
 
-<h2 data-i18n="about-heading">Engineering That Ships</h2>
+            <p data-i18n="about-intro">
+                Embedded systems with ownership from firmware
+                to production tooling and cloud integration.
+            </p>
 
-<p data-i18n="about-intro">
-Embedded systems with ownership from firmware
-to production tooling and cloud integration.
-</p>
+            <p class="about-detail" data-i18n="about-detail">
+                I'm an embedded firmware developer with a passion for building complete solutions—from low-level firmware
+                and IoT systems to production tools and cloud integration.
+                I live by the principle that the best work comes from pouring your heart into every detail, seeking
+                collaboration when needed, and maintaining strong connections with the people I work with.
+            </p>
+
+        </section>
 
-<p class="about-detail" data-i18n="about-detail">
-I'm an embedded firmware developer with a passion for building complete solutions—from low-level firmware and IoT systems to production tools and cloud integration. 
-I live by the principle that the best work comes from pouring your heart into every detail, seeking collaboration when needed, and maintaining strong connections with the people I work with.
-</p>
 
-</section>
+        <section id="experience" class="experience" aria-labelledby="experience-heading">
 
+            <div class="sticky">
 
-<section
-id="experience"
-class="experience"
->
+                <div id="experience-progress" class="progress" role="progressbar" aria-labelledby="experience-heading"
+                    aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0%">
 
-<div class="sticky">
+                    <div id="fill"></div>
 
-<div class="progress">
+                </div>
 
-<div id="fill"></div>
+                <h2 id="experience-heading" class="progress-label" data-i18n="experience-label">
+                    Experience
+                </h2>
 
-</div>
+            </div>
 
-<div class="progress-label" data-i18n="experience-label">
-Experience
-</div>
 
-</div>
+            <div class="cards">
 
-
-<div class="cards">
-
-<div class="card">
-<div class="card-content">
-<h4>JE electronic A/S</h4>
-<p class="role" data-i18n="exp1-role">Embedded Firmware Developer</p>
-<p class="date" data-i18n="exp1-date">Feb. 2022 — Present</p>
-
-<p data-i18n="exp1-desc">
-Collaborated with clients on innovative industrial IoT products, including an intelligent rat trap with remote data transmission. 
-Developed 70% firmware alongside 30% supporting software: production tools, OTA updates, backend servers, and label printer applications. 
-Full stack embedded systems development.
-</p>
-
-<div class="tags">
-<span>C/C++</span>
-<span>Nordic nRF52</span>
-<span>IoT</span>
-<span>Docker</span>
-<span>Azure</span>
-</div>
-</div>
-<img src="Pictures/je-electronic.png" alt="JE electronic" class="card-logo">
-</div>
-
-
-<div class="card">
-
-<div class="card-content">
-
-<h4>Pressalit Care</h4>
-<p class="role" data-i18n="exp2-role">Internship — Product Development</p>
-<p class="date" data-i18n="exp2-date">Feb. 2020 — Jul. 2020</p>
-
-<p data-i18n="exp2-desc">
-Developed a functional prototype for advanced monitoring solutions for individuals with dementia in home care. 
-This work contributed to the company establishing a dedicated electronics development department.
-</p>
-
-<div class="tags">
-<span data-i18n="exp2-tag-product">Product Dev</span>
-<span data-i18n="exp2-tag-prototype">Prototyping</span>
-<span data-i18n="exp2-tag-embedded">Embedded Systems</span>
-</div>
-
-</div>
-
-<img src="Pictures/pressalit.webp" alt="Pressalit Care" class="card-logo">
-
-</div>
-
-
-<div class="card">
-<div class="card-content">
-<h4>Aarhus University</h4>
-<p class="role" data-i18n="exp3-role">Tutor & Student Representative</p>
-<p class="date" data-i18n="exp3-date">Sep. 2021 — Nov. 2021</p>
-
-<p data-i18n="exp3-desc">
-Supported first and second-semester students in the study café for Electronics, Software, and Health Technology programs. 
-Served on the Academic Council to advocate for student needs.
-</p>
-
-<div class="tags">
-<span data-i18n="exp3-tag-education">Education</span>
-<span data-i18n="exp3-tag-mentoring">Mentoring</span>
-<span data-i18n="exp3-tag-leadership">Leadership</span>
-</div>
-</div>
-<img src="Pictures/aarhusUnversitet.png" alt="Aarhus University" class="card-logo">
-</div>
-
-</div>
-
-</section>
-
-
-<section class="skills">
-
-<div class="sticky-label" data-i18n="skills-label">Skills</div>
-
-<div class="skill-grid">
-
-<div class="skill-category">
-<h3 data-i18n="skills-core-languages">Core Languages</h3>
-<div class="skill-list">
-<div class="skill"><span class="name">C</span><div class="bar"><div class="fill" style="width: 100%;"></div></div></div>
-<div class="skill"><span class="name">C#</span><div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
-<div class="skill"><span class="name">C++</span><div class="bar"><div class="fill" style="width: 70%;"></div></div></div>
-</div>
-</div>
-
-<div class="skill-category">
-<h3 data-i18n="skills-embedded">Embedded &amp; Microcontrollers</h3>
-<div class="skill-list">
-<div class="skill"><span class="name">Nordic nRF52</span><div class="bar"><div class="fill" style="width: 90%;"></div></div></div>
-<div class="skill"><span class="name">STM32</span><div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
-<div class="skill"><span class="name">Quectel BG95</span><div class="bar"><div class="fill" style="width: 90%;"></div></div></div>
-</div>
-</div>
-
-<div class="skill-category">
-<h3 data-i18n="skills-devops">DevOps &amp; Infrastructure</h3>
-<div class="skill-list">
-<div class="skill"><span class="name">Docker</span><div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
-<div class="skill"><span class="name">Linux</span><div class="bar"><div class="fill" style="width: 70%;"></div></div></div>
-<div class="skill"><span class="name">Git</span><div class="bar"><div class="fill" style="width: 85%;"></div></div></div>
-<div class="skill"><span class="name">Azure IoT Hub</span><div class="bar"><div class="fill" style="width: 80%;"></div></div></div>
-</div>
-</div>
-
-<div class="skill-category">
-<h3 data-i18n="skills-strengths">Technical Strengths</h3>
-<div class="tags-grid">
-<span class="tag">OTA Updates</span>
-<span class="tag">IoT Systems</span>
-<span class="tag">TLS/Security</span>
-<span class="tag">Production Tools</span>
-<span class="tag">Backend Development</span>
-<span class="tag">Firmware Architecture</span>
-</div>
-</div>
-
-<div class="skill-category">
-<h3 data-i18n="skills-soft">Soft Skills</h3>
-<div class="tags-grid">
-<span class="tag" data-i18n="soft-passionate">Passionate</span>
-<span class="tag" data-i18n="soft-responsible">Responsible</span>
-<span class="tag" data-i18n="soft-ambitious">Ambitious</span>
-<span class="tag" data-i18n="soft-fast-learner">Fast Learner</span>
-<span class="tag" data-i18n="soft-collaborative">Collaborative</span>
-<span class="tag" data-i18n="soft-results">Results-Oriented</span>
-<span class="tag" data-i18n="soft-flexible">Flexible</span>
-<span class="tag" data-i18n="soft-customer">Customer-Focused</span>
-</div>
-</div>
-
-<div class="skill-category">
-<h3 data-i18n="skills-languages">Languages</h3>
-<div class="skill-list">
-<div class="skill"><span class="name" data-i18n="lang-danish">Danish</span><div class="bar"><div class="fill" style="width: 100%;"></div></div></div>
-<div class="skill"><span class="name" data-i18n="lang-english">English</span><div class="bar"><div class="fill" style="width: 100%;"></div></div></div>
-</div>
-</div>
-
-</div>
-
-</section>
-
-
-<section class="about-detail-section">
-
-<h2 data-i18n="about2-heading">About</h2>
-
-<p data-i18n="about2-p1">
-I'm passionate about building embedded systems that solve real problems. 
-I live in Børkop with my partner Louise and our dog Tinka, and I thrive on the balance between focused technical work and time with the people I care about.
-</p>
-
-<p data-i18n="about2-p2">
-What drives me is ownership—from initial firmware architecture to deployment in production, seeing solutions used by real customers. 
-I take pride in delivering well-executed work, and I'm not afraid to seek collaboration when obstacles are bigger than expected. 
-I believe strong bonds with colleagues make better products, and that life's too short for problems without solutions.
-</p>
-
-<p data-i18n="about2-p3">
-When facing new challenges, my determination becomes an asset. 
-Whether it's debugging low-level hardware issues, designing IoT architectures, or mentoring junior developers, I bring focus and thoroughness to every task.
-</p>
-
-</section>
-
-
-<section class="contact">
-
-<h2 data-i18n="contact-heading">Get In Touch</h2>
-
-<div class="contact-links">
-<a href="mailto:frederikrokkjaer@hotmail.com" class="contact-link">
-<span class="icon">✉</span>
-<span>frederikrokkjaer@hotmail.com</span>
-</a>
-
-<a href="tel:+4530635580" class="contact-link">
-<span class="icon">📞</span>
-<span>+45 30 63 55 80</span>
-</a>
-
-<a href="https://www.linkedin.com/in/frederik-rokkjaer" class="contact-link" target="_blank">
-<svg class="icon linkedin-logo" viewBox="0 0 24 24" aria-hidden="true">
-<path fill="currentColor" d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0ZM7.12 20.45H3.56V9h3.56v11.45ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14Zm15.11 13.02h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.26 2.39 4.26 5.48v6.26Z"></path>
-</svg>
-<span data-i18n="linkedin-label">LinkedIn</span>
-</a>
-
-<a href="https://github.com/FredRokk" class="contact-link" target="_blank">
-<svg class="icon github-logo" viewBox="0 0 24 24" aria-hidden="true">
-<path fill="currentColor" d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.56v-1.97c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.69.08-.69 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.56-.29-5.26-1.28-5.26-5.71 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.14 1.18a10.94 10.94 0 0 1 5.72 0c2.18-1.49 3.14-1.18 3.14-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.44-2.71 5.42-5.29 5.71.41.36.78 1.08.78 2.18v3.23c0 .31.2.67.79.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"></path>
-</svg>
-<span>GitHub</span>
-</a>
-</div>
-
-<p class="location" data-i18n="location-label">📍 Høll, Denmark</p>
-
-<div class="map-wrapper">
-<h3 data-i18n="map-heading">Find Me on the Map</h3>
-<div class="map-frame">
-<div id="contact-map" class="map-canvas" aria-label="Location map"></div>
-</div>
-</div>
-
-</section>
-
-<script
-src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-crossorigin=""
-></script>
-<script src="scripts.js"></script>
+                <article class="card" aria-labelledby="experience-card-1-title">
+                    <div class="card-content">
+                        <h3 id="experience-card-1-title">JE electronic A/S</h3>
+                        <p class="role" data-i18n="exp1-role">Embedded Firmware Developer</p>
+                        <p class="date" data-i18n="exp1-date">Feb. 2022 — Present</p>
+
+                        <p data-i18n="exp1-desc">
+                            Collaborated with clients on innovative industrial IoT products, including an intelligent rat
+                            trap with remote data transmission.
+                            Developed 70% firmware alongside 30% supporting software: production tools, OTA updates, backend
+                            servers, and label printer applications.
+                            Full stack embedded systems development.
+                        </p>
+
+                        <ul class="tags" aria-label="Technologies used">
+                            <li><span>C/C++</span></li>
+                            <li><span>Nordic nRF52</span></li>
+                            <li><span>IoT</span></li>
+                            <li><span>Docker</span></li>
+                            <li><span>Azure</span></li>
+                        </ul>
+                    </div>
+                    <img src="Pictures/je-electronic.webp" alt="JE electronic" class="card-logo" loading="lazy"
+                        decoding="async">
+                </article>
+
+
+                <article class="card" aria-labelledby="experience-card-2-title">
+
+                    <div class="card-content">
+
+                        <h3 id="experience-card-2-title">Pressalit Care</h3>
+                        <p class="role" data-i18n="exp2-role">Internship — Product Development</p>
+                        <p class="date" data-i18n="exp2-date">Feb. 2020 — Jul. 2020</p>
+
+                        <p data-i18n="exp2-desc">
+                            Developed a functional prototype for advanced monitoring solutions for individuals with dementia
+                            in home care.
+                            This work contributed to the company establishing a dedicated electronics development
+                            department.
+                        </p>
+
+                        <ul class="tags" aria-label="Focus areas">
+                            <li><span data-i18n="exp2-tag-product">Product Dev</span></li>
+                            <li><span data-i18n="exp2-tag-prototype">Prototyping</span></li>
+                            <li><span data-i18n="exp2-tag-embedded">Embedded Systems</span></li>
+                        </ul>
+
+                    </div>
+
+                    <img src="Pictures/pressalit-headquarters-01-dsc02792.webp" alt="Pressalit Care" class="card-logo" loading="lazy"
+                        decoding="async">
+
+                </article>
+
+
+                <article class="card" aria-labelledby="experience-card-3-title">
+                    <div class="card-content">
+                        <h3 id="experience-card-3-title">Aarhus University</h3>
+                        <p class="role" data-i18n="exp3-role">Tutor & Student Representative</p>
+                        <p class="date" data-i18n="exp3-date">Sep. 2021 — Nov. 2021</p>
+
+                        <p data-i18n="exp3-desc">
+                            Supported first and second-semester students in the study café for Electronics, Software, and
+                            Health Technology programs.
+                            Served on the Academic Council to advocate for student needs.
+                        </p>
+
+                        <ul class="tags" aria-label="Focus areas">
+                            <li><span data-i18n="exp3-tag-education">Education</span></li>
+                            <li><span data-i18n="exp3-tag-mentoring">Mentoring</span></li>
+                            <li><span data-i18n="exp3-tag-leadership">Leadership</span></li>
+                        </ul>
+                    </div>
+                    <img src="Pictures/aarhusUnversitet.webp" alt="Aarhus University" class="card-logo" loading="lazy"
+                        decoding="async">
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <section class="skills" aria-labelledby="skills-heading">
+
+            <h2 id="skills-heading" class="sticky-label" data-i18n="skills-label">Skills</h2>
+
+            <div class="skill-grid">
+
+                <section class="skill-category" aria-labelledby="skills-core-languages-heading">
+                    <h3 id="skills-core-languages-heading" data-i18n="skills-core-languages">Core Languages</h3>
+                    <div class="skill-list">
+                        <div class="skill"><span class="name">C</span>
+                            <div class="bar">
+                                <div class="fill" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill"><span class="name">C#</span>
+                            <div class="bar">
+                                <div class="fill" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill"><span class="name">C++</span>
+                            <div class="bar">
+                                <div class="fill" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="skill-category" aria-labelledby="skills-embedded-heading">
+                    <h3 id="skills-embedded-heading" data-i18n="skills-embedded">Embedded &amp; Microcontrollers</h3>
+                    <div class="skill-list">
+                        <div class="skill"><span class="name">Nordic nRF52</span>
+                            <div class="bar">
+                                <div class="fill" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill"><span class="name">STM32</span>
+                            <div class="bar">
+                                <div class="fill" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill"><span class="name">Quectel BG95</span>
+                            <div class="bar">
+                                <div class="fill" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="skill-category" aria-labelledby="skills-devops-heading">
+                    <h3 id="skills-devops-heading" data-i18n="skills-devops">DevOps &amp; Infrastructure</h3>
+                    <div class="skill-list">
+                        <div class="skill"><span class="name">Docker</span>
+                            <div class="bar">
+                                <div class="fill" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill"><span class="name">Linux</span>
+                            <div class="bar">
+                                <div class="fill" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill"><span class="name">Git</span>
+                            <div class="bar">
+                                <div class="fill" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill"><span class="name">Azure IoT Hub</span>
+                            <div class="bar">
+                                <div class="fill" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="skill-category" aria-labelledby="skills-strengths-heading">
+                    <h3 id="skills-strengths-heading" data-i18n="skills-strengths">Technical Strengths</h3>
+                    <div class="tags-grid">
+                        <span class="tag">OTA Updates</span>
+                        <span class="tag">IoT Systems</span>
+                        <span class="tag">TLS/Security</span>
+                        <span class="tag">Production Tools</span>
+                        <span class="tag">Backend Development</span>
+                        <span class="tag">Firmware Architecture</span>
+                    </div>
+                </section>
+
+                <section class="skill-category" aria-labelledby="skills-soft-heading">
+                    <h3 id="skills-soft-heading" data-i18n="skills-soft">Soft Skills</h3>
+                    <div class="tags-grid">
+                        <span class="tag" data-i18n="soft-passionate">Passionate</span>
+                        <span class="tag" data-i18n="soft-responsible">Responsible</span>
+                        <span class="tag" data-i18n="soft-ambitious">Ambitious</span>
+                        <span class="tag" data-i18n="soft-fast-learner">Fast Learner</span>
+                        <span class="tag" data-i18n="soft-collaborative">Collaborative</span>
+                        <span class="tag" data-i18n="soft-results">Results-Oriented</span>
+                        <span class="tag" data-i18n="soft-flexible">Flexible</span>
+                        <span class="tag" data-i18n="soft-customer">Customer-Focused</span>
+                    </div>
+                </section>
+
+                <section class="skill-category" aria-labelledby="skills-languages-heading">
+                    <h3 id="skills-languages-heading" data-i18n="skills-languages">Languages</h3>
+                    <div class="skill-list">
+                        <div class="skill"><span class="name" data-i18n="lang-danish">Danish</span>
+                            <div class="bar">
+                                <div class="fill" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill"><span class="name" data-i18n="lang-english">English</span>
+                            <div class="bar">
+                                <div class="fill" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+        </section>
+
+
+        <section class="about-detail-section" aria-labelledby="about-detail-heading">
+
+            <h2 id="about-detail-heading" data-i18n="about2-heading">About</h2>
+
+            <p data-i18n="about2-p1">
+                I'm passionate about building embedded systems that solve real problems.
+                I live in Børkop with my partner Louise and our dog Tinka, and I thrive on the balance between focused
+                technical work and time with the people I care about.
+            </p>
+
+            <p data-i18n="about2-p2">
+                What drives me is ownership—from initial firmware architecture to deployment in production, seeing
+                solutions used by real customers.
+                I take pride in delivering well-executed work, and I'm not afraid to seek collaboration when obstacles are
+                bigger than expected.
+                I believe strong bonds with colleagues make better products, and that life's too short for problems without
+                solutions.
+            </p>
+
+            <p data-i18n="about2-p3">
+                When facing new challenges, my determination becomes an asset.
+                Whether it's debugging low-level hardware issues, designing IoT architectures, or mentoring junior
+                developers, I bring focus and thoroughness to every task.
+            </p>
+
+        </section>
+
+
+        <section class="contact" aria-labelledby="contact-heading">
+
+            <h2 id="contact-heading" data-i18n="contact-heading">Get In Touch</h2>
+
+            <address class="contact-links">
+                <a href="mailto:frederikrokkjaer@hotmail.com" class="contact-link"
+                    aria-label="Send an email to frederikrokkjaer@hotmail.com">
+                    <span class="icon" aria-hidden="true">✉</span>
+                    <span>frederikrokkjaer@hotmail.com</span>
+                </a>
+
+                <a href="tel:+4530635580" class="contact-link" aria-label="Call +45 30 63 55 80">
+                    <span class="icon" aria-hidden="true">📞</span>
+                    <span>+45 30 63 55 80</span>
+                </a>
+
+                <a href="https://www.linkedin.com/in/frederik-rokkjaer" class="contact-link" target="_blank"
+                    rel="noopener noreferrer" aria-label="Open LinkedIn profile in a new tab">
+                    <svg class="icon linkedin-logo" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill="currentColor"
+                            d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0ZM7.12 20.45H3.56V9h3.56v11.45ZM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14Zm15.11 13.02h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.26 2.39 4.26 5.48v6.26Z">
+                        </path>
+                    </svg>
+                    <span data-i18n="linkedin-label">LinkedIn</span>
+                </a>
+
+                <a href="https://github.com/FredRokk" class="contact-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="Open GitHub profile in a new tab">
+                    <svg class="icon github-logo" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill="currentColor"
+                            d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.56v-1.97c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.27-1.68-1.27-1.68-1.04-.71.08-.69.08-.69 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.56-.29-5.26-1.28-5.26-5.71 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.14 1.18a10.94 10.94 0 0 1 5.72 0c2.18-1.49 3.14-1.18 3.14-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.44-2.71 5.42-5.29 5.71.41.36.78 1.08.78 2.18v3.23c0 .31.2.67.79.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z">
+                        </path>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+            </address>
+
+            <p class="location" data-i18n="location-label">📍 Høll, Denmark</p>
+
+            <section class="map-wrapper" aria-labelledby="map-heading">
+                <h3 id="map-heading" data-i18n="map-heading">Find Me on the Map</h3>
+                <div class="map-frame">
+                    <div id="contact-map" class="map-canvas" aria-label="Location map"></div>
+                </div>
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="scripts.js"></script>
 
 </body>
+
 </html>
